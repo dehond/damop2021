@@ -1,0 +1,25 @@
+.two-column-slide {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    grid-template-rows: 1fr;
+    gap: 5%;
+    grid-template-areas:
+      ". .";
+  }
+
+
+.reveal h4 {
+  margin-bottom: 5%;
+}
+
+ul {
+  font-size: 25pt;
+}
+
+li {
+  margin: 10px 0;
+}
+
+p {
+  font-size: 25pt;
+}

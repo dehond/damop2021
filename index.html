@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Single-ion anisotropy</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+		<link rel="stylesheet" href="mystyle.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'></script>
+		<script src="plugin/math/math.js"></script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<div>
+					<h4>Tunable Single-Ion Anisotropy in Spin-1 Models Realized with Ultracold Atoms</h4>
+					<p style="font-style: italic; font-size:20pt;">
+						<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.163203">Phys. Rev. Lett. <b>126</b> 163203</a>
+					</p>
+					<p style="margin-bottom: 5%;"></p>
+					<h7>Julius de Hond</h7>
+					<div></div>
+					<h7>DAMOP 2021</h7>
+					<p style="margin-bottom: 5%;"></p>
+					<div>
+						<img src="imgs/MIT-logo-with-spelling-design1-large-lightgray-white.svg" width=300></img>
+					</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Acknowledgments</h4>
+					<div class="two-column-slide">
+						<div>
+							<p style="font-size:20pt">Woo Chang Chung • Julius de Hond <br> Jinggang Xiang (项晶罡) • Enid Cruz-Colón <br> Wolfgang Ketterle </p>
+						</div>
+						<div>Funding</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Why $S = 1$ models are different</h4>
+					<ul>
+						<li>Support on-site anisotropy $\propto S_z^2$</li>
+						<li>Describe class of magnetic materials</li>
+						<li>New topological phases (AKLT/Haldane)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>A quantum simulator for $S = 1$</h4>
+					<div class="two-column-slide">
+						<div>
+							<ul>
+								<li>$N=2$ Mott insulator</li>
+								<li>Spin degree of freedom $|1,-1\rangle|1,1\rangle$ or $|1,-1\rangle|1,0\rangle$</li>
+								<li>Bose-Hubbard $\Leftrightarrow$ Heisenberg</li>
+								<li>Measure $\langle \psi|S_z=0\rangle$ using Feshbach resonance</li>
+							</ul>
+						</div>
+						<div>
+							<svg width="100%" viewBox="0 -20 200 150">
+								<style type="text/css">
+									.st0{fill:none;stroke:#ededed;stroke-miterlimit:10;}
+									.st1{fill:#ededed;stroke:#ededed;stroke-miterlimit:10;}
+								</style>
+								<g id="triple-well">
+									<path class="st0" d="M0,0.5c16.25,0,16.25,67,32.5,67c16.25,0,16.25-67,32.5-67c16.25,0,16.25,67,32.5,67c16.25,0,16.25-67,32.5-67
+										c16.25,0,16.25,67,32.5,67s16.25-67,32.5-67"/>
+									<circle class="st1" cx="32.37" cy="59.27" r="5"/>
+									<circle class="st0" cx="32.37" cy="47.72" r="5"/>
+									<circle class="st0" cx="97.5" cy="60.04" r="5"/>
+									<circle class="st0" cx="97.5" cy="48.49" r="5"/>
+									<circle class="st1" cx="162.61" cy="60.04" r="5"/>
+									<circle class="st1" cx="162.61" cy="48.49" r="5"/>
+								</g>
+							</svg>	
+							<p style="font-size:24pt">
+								\[\begin{aligned}
+								\circ &amp; = |a\rangle = |1,-1\rangle \\
+								\bullet &amp; = |b\rangle = |1,1\rangle/|1,0\rangle
+								\end{aligned}\]
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Effective Heisenberg model</h4>
+					<svg width="70%" id="heisenberg-animation-container" viewBox="0 -20 200 130">
+						<style type="text/css">
+							.st0{fill:none;stroke:#ededed;stroke-miterlimit:10;}
+							.st1{fill:#ededed;stroke:#ededed;stroke-miterlimit:10;}
+						</style>
+						<g id="heisenberg-animation">
+							<path class="st0" d="M0,0.5c16.25,0,16.25,67,32.5,67c16.25,0,16.25-67,32.5-67c16.25,0,16.25,67,32.5,67c16.25,0,16.25-67,32.5-67
+								c16.25,0,16.25,67,32.5,67s16.25-67,32.5-67"/>
+							<circle id="ball1" class="st1" cx="32.37" cy="60.4" r="5"/>
+							<circle id="ball2" class="st0" cx="32.37" cy="47.72" r="5"/>
+							<circle id="ball3" class="st1" cx="97.5" cy="60.04" r="5"/>
+							<circle id="ball4" class="st0" cx="97.5" cy="47.72" r="5"/>
+							<circle class="st1" cx="162.61" cy="60.04" r="5"/>
+							<circle class="st0" cx="162.61" cy="47.72" r="5"/>
+						</g>
+					</svg>
+					$\mathcal{H} = -J \sum_{i} \mathbf{S}_i\cdot\mathbf{S}_{i+1} + D \sum_i S_z^{~2}$
+					<p style="font-size:20pt">See Schachenmayer <em>et al.</em>, <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.92.041602">PRA <b>92</b> 041602(R)</a></p>
+				</section>
+
+				<section>
+					<h4>Anisotropic physics, away from equilibrium</h4>
+					<p>Create superposition state with global $\pi/2$ pulse:</p>
+					<p>
+						\[\begin{aligned}
+							|\psi\rangle = &amp; \frac{1}{\sqrt{2}} \left( |a\rangle - i|b\rangle \right)^{\otimes 2} \\
+										  \xrightarrow{\mathrm{spin\,model}} &amp; \frac{1}{2} \left( |\!\Uparrow\rangle -i\sqrt{2}|\circ\rangle - |\!\Downarrow\rangle \right)
+						\end{aligned}\]
+					</p>
+				</section>
+
+				<section>
+					<h4>Two-site model</h4>
+					<ul>
+						<li>Hilbert space is 9D: $\left\{ |\!\Uparrow\Uparrow\rangle, |\!\Uparrow\circ\rangle, \cdots, |\!\Downarrow\Downarrow\rangle \right\}$</li>
+						<li>Only $\sum_i m_s = 0$ subspace couples</li>
+						<li>Effective Hamiltonian & basis:</li>
+						<p>
+							\[
+							
+							\begin{pmatrix}
+							J + 2D  &  -\sqrt{2} J \\
+							-\sqrt{2} J & 0
+							\end{pmatrix}
+							
+							\left|
+							\begin{matrix}
+							\left(|\!\Uparrow\Downarrow\rangle + |\!\Downarrow\Uparrow\rangle\right)/\sqrt{2} \\
+							|\circ\circ\rangle
+							\end{matrix}
+							\right\rangle
+
+							\]
+						</p>
+					</ul>
+				</section>
+
+				<section data-background-color="#1d2c4a">
+					<h4 style="margin-bottom:0">Two-site model</h4>
+					<div id="two-site-container"></div>
+				</section>
+
+				<section>
+					<h4>Out-of-equilibrium dynamics</h4>
+					<section>
+						<p><img src="imgs/negative-u-scan-hold-time-split-dark.svg" width=60%></img></p>
+						<p>$D/J < 0$</p>
+						<p>Spin alignment $A = S(S+1) - 3S_z^{~2}$</p>
+					</section>
+					<section>
+						<p><img src="imgs/positive-u-scan-hold-time-split-dark.svg" width="60%"></img></p>
+						<p>$D/J > 0$</p>
+						<p>Spin alignment $A = S(S+1) - 3S_z^{~2}$</p>
+					</section>
+				</section>
+
+				<section>
+					<h4>Resonant behavior</h4>
+					<div class="two-column-slide">
+						<div>
+							<p><img src="imgs/scan-lattice-depth-combined-double-axis-dark.svg" width="80%"></img></p>
+						</div>
+						<div style="display: table; height: 100%; overflow: hidden;">
+							<div style="display: table-cell; vertical-align: middle;">
+								<ul>
+									<li>Fix hold time to $\sim 1/J$</li>
+									<li>Resonance around $|D/J| \sim 2$</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>Outlook</h4>
+					<div>
+						<ul>
+							<li>Increase $D$ using spin-dependent lattice</li>
+							<li>Study $S=1$ phase transitions</li>
+							<li>Designing and building a microscope</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h4>Links</h4>
+					<p>Paper: <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.163203">Chung <em>et al.</em>, Phys. Rev. Lett. <b>126</b>, 163203</a></p>
+					<p>Slides: <a href="http://dehond.github.io/damop2021">dehond.github.io/damop2021</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="scripts/animate-twosite.js"></script>
+		<script src="scripts/render-mapping.js"></script>
+		<script src="scripts/effective-heisenberg-animation.js"></script>
+
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				width: 960,
+				height: 700,
+				progress: false,
+				controls: true,
+				controlsTutorial: false,
+
+				math: {
+					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					// pass other options into `MathJax.Hub.Config()`
+					TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+
+				
+			});
+		</script>
+	</body>
+</html>
