@@ -4,14 +4,15 @@ let animationstate = 0;
 let hposSphere = width / 2 * 0.6;
 let projangle = [5, -20, 0];
 let oscAmp = 0.0;
-let oscOffs = 0.76;
+let oscOffs = 0.5; //0.76
 let precesLat = 50;
 
 let svg = d3.select("#two-site-container")
   .append("svg")
   .attr("height", height)
   .attr("width", width)
-  .style("background-color", "#1d2c4a");
+  .style("background-color", "#111111");
+  //.style("background-color", "#1d2c4a");
 
 let yscalePlot = drawAxes(svg);
 let plotpts = svg.select("#plotpoints").selectAll("circle");
@@ -127,7 +128,7 @@ function animate() {
           projection3.rotate([projangle[0], projangle[1] - 60 * t, projangle[2]])
           projection4.rotate([projangle[0], projangle[1] - 60 * t, projangle[2]])
           oscAmp = 0.2 * t;
-          oscOffs = 0.76 - 0.1 * t;
+          oscOffs = 0.5 - 0.1 * t;
           precesLat = 50 + 20 * t;
           return path4(d)
         }
@@ -137,7 +138,7 @@ function animate() {
           projection3.rotate([projangle[0], projangle[1] - 60 + 60 * t, projangle[2]])
           projection4.rotate([projangle[0], projangle[1] - 60 + 60 * t, projangle[2]])
           oscAmp = 0.2 * (1 - t);
-          oscOffs = 0.66 + 0.1 * t;
+          oscOffs = 0.4 + 0.1 * t;
           precesLat = 70 - 20 * t;
           return path4(d)
         }
@@ -235,9 +236,11 @@ function drawAxes(svg) {
     .attr("font-family", "sans-serif")
 
   svg.append("g")
-    .attr("transform", `translate( ${svgwidth - axwidth - 25}, ${svgheight / 2 + 35} ) scale(0.6) rotate(-90)`)
-    .append(() => MathJax.tex2svg(String.raw`\langle\circ\!\circ\!|\psi\rangle`).querySelector("svg"))
+    .attr("transform", `translate( ${svgwidth - axwidth - 35}, ${svgheight / 2 + 25} ) scale(0.6) rotate(-90)`)
+    .append(() => MathJax.tex2svg(String.raw`\langle \hat{A} \rangle`).querySelector("svg"))
     .attr("color", "#ededed")
+//    .append(() => MathJax.tex2svg(String.raw`\langle\circ\!\circ\!|\psi\rangle`).querySelector("svg"))
+
 
   return yscale
 };

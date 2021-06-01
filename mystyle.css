@@ -12,8 +12,20 @@
   margin-bottom: 5%;
 }
 
+.reveal .controls {
+  color: #3b90ff;
+}
+
+.reveal a {
+  color: #3b90ff;
+}
+
+.reveal a:hover {
+  color: #bcd9ff;
+}
+
 ul {
-  font-size: 25pt;
+  font-size: 23pt;
 }
 
 li {

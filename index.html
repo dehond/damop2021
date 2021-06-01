@@ -34,7 +34,8 @@
 					<h7>DAMOP 2021</h7>
 					<p style="margin-bottom: 5%;"></p>
 					<div>
-						<img src="imgs/MIT-logo-with-spelling-design1-large-lightgray-white.svg" width=300></img>
+						<img src="imgs/MIT-logo-with-spelling-design1-large-lightgray-white.svg" width="300px"></img>
+						<img src="imgs/cua-logo.png" height="80px"></img>
 					</div>
 					</div>
 				</section>
@@ -58,7 +59,8 @@
 				<section>
 					<h4>Why $S = 1$ models are different</h4>
 					<ul>
-						<li>Support on-site anisotropy $\propto S_z^2$</li>
+						<li>Isotropic spin models miss some phenomena</li>
+						<li>$S=1$ supports on-site ('single-ion') anisotropy $\propto S_z^{~2}$</li>
 						<li>Describe class of magnetic materials</li>
 						<li>New topological phases (AKLT/Haldane)</li>
 					</ul>
@@ -70,10 +72,19 @@
 						<div>
 							<ul>
 								<li>$N=2$ Mott insulator</li>
-								<li>Spin degree of freedom $|1,-1\rangle|1,1\rangle$ or $|1,-1\rangle|1,0\rangle$</li>
+								<li>Spin degree of freedom, use pairs
+									<ul style="font-size:20pt">
+										<li>$|F=1,m_F=-1\rangle\,\&\,|F=1,m_F=1\rangle$</li>
+										<li>$|F=1,m_F=-1\rangle\,\&\,|F=1,m_F=0\rangle$</li>
+									</ul>
+								</li>
 								<li>Bose-Hubbard $\Leftrightarrow$ Heisenberg</li>
-								<li>Measure $\langle \psi|S_z=0\rangle$ using Feshbach resonance</li>
+								<li>Measure spin alignment $\hat{A}$ using Feshbach resonance</li>
 							</ul>
+							$$\begin{aligned}
+								\hat{A} &amp; = S(S+1) -3S_z^{~2} \\
+								&amp; = 3\left|\left\langle S_z=0 | \psi \right\rangle \right|^2 - 1
+							\end{aligned}$$
 						</div>
 						<div>
 							<svg width="100%" viewBox="0 -20 200 150">
@@ -136,37 +147,6 @@
 				</section>
 
 				<section>
-					<h4>Two-site model</h4>
-					<ul>
-						<li>Hilbert space is 9D: $\left\{ |\!\Uparrow\Uparrow\rangle, |\!\Uparrow\circ\rangle, \cdots, |\!\Downarrow\Downarrow\rangle \right\}$</li>
-						<li>Only $\sum_i m_s = 0$ subspace couples</li>
-						<li>Effective Hamiltonian & basis:</li>
-						<p>
-							\[
-							
-							\begin{pmatrix}
-							J + 2D  &  -\sqrt{2} J \\
-							-\sqrt{2} J & 0
-							\end{pmatrix}
-							
-							\left|
-							\begin{matrix}
-							\left(|\!\Uparrow\Downarrow\rangle + |\!\Downarrow\Uparrow\rangle\right)/\sqrt{2} \\
-							|\circ\circ\rangle
-							\end{matrix}
-							\right\rangle
-
-							\]
-						</p>
-					</ul>
-				</section>
-
-				<section data-background-color="#1d2c4a">
-					<h4 style="margin-bottom:0">Two-site model</h4>
-					<div id="two-site-container"></div>
-				</section>
-
-				<section>
 					<h4>Out-of-equilibrium dynamics</h4>
 					<section>
 						<p><img src="imgs/negative-u-scan-hold-time-split-dark.svg" width=60%></img></p>
@@ -195,6 +175,38 @@
 							</div>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					<h4>Two-site model</h4>
+					<ul>
+						<li>Hilbert space is 9D: $\left\{ |\!\Uparrow\Uparrow\rangle, |\!\Uparrow\circ\rangle, \cdots, |\!\Downarrow\Downarrow\rangle \right\}$</li>
+						<li>Only $\sum_i m_s = 0$ subspace couples</li>
+						<li>Effective Hamiltonian & basis:</li>
+						<p>
+							\[
+							
+							\begin{pmatrix}
+							J + 2D  &  -\sqrt{2} J \\
+							-\sqrt{2} J & 0
+							\end{pmatrix}
+							
+							\left|
+							\begin{matrix}
+							\left(|\!\Uparrow\Downarrow\rangle + |\!\Downarrow\Uparrow\rangle\right)/\sqrt{2} \\
+							|\circ\circ\rangle
+							\end{matrix}
+							\right\rangle
+
+							\]
+						</p>
+					</ul>
+				</section>
+
+				<!-- <section data-background-color="#1d2c4a"> -->
+				<section>
+					<h4 style="margin-bottom:0">Two-site model</h4>
+					<div id="two-site-container"></div>
 				</section>
 
 				<section>
